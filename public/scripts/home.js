@@ -1,8 +1,10 @@
+const url = document.currentScript.getAttribute('url');
+
 $(document).ready(() => {
   let tarefas = [];
   let pendentesCount = 0;
   $.ajax({
-    url: "http://127.0.0.1:8000/api/v1/tarefa",
+    url: `${url}/api/v1/tarefa`,
     context: 'application/json'
   }).done((res) => {
     tarefas = JSON.parse(res);
