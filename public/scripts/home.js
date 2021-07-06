@@ -1,6 +1,6 @@
 const url = document.currentScript.getAttribute('url');
 
-$(document).ready(() => {
+const pendentes = () =>{
   let tarefas = [];
   let pendentesCount = 0;
   $.ajax({
@@ -14,4 +14,8 @@ $(document).ready(() => {
     if (pendentesCount === 1) $('#pending__container').append(`<div class="bg-danger p-4 rounded">Você tem: ${pendentesCount} tarefa pendentes.</div>`).hide().fadeIn(200)
     if (pendentesCount > 1) $('#pending__container').append(`<div class="bg-danger p-4 rounded">Você tem: ${pendentesCount} tarefas pendentes.</div>`).hide().fadeIn(200)
   });
+}
+
+$(document).ready(() => {
+  pendentes();
 });
