@@ -116,7 +116,11 @@ class ApiController extends Controller
       'priority' => $request->input('priority'),
       'status' => $status
     ];
-    Log::info($tarefa);
+    foreach($tarefa as $el){
+      if(empty(trim($el))){
+        return redirect('/tarefa/criar')->withErrors('Tarefa não pode estar vazia!');
+      }
+    }
     $user_id = session('user_data')['id'];
     $TasksModel = new TasksModel($user_id);
     $insert = $TasksModel->createTarefas($tarefa);

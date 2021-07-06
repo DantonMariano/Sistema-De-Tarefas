@@ -79,6 +79,9 @@
             </div>
             <button type="submit" class="btn btn-outline-primary login__form__button">Submit</button>
             @csrf
+            @if ($errors->any())
+              <div class='error my-2' style="position: relative; top:12px;">{{ $errors->first() }}</div>
+            @endif
           </form>
         </div>
       </div>
